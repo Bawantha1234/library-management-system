@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="panetransaction" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TransactionController">
+   <children>
+      <ComboBox fx:id="comboBox" layoutX="146.0" layoutY="66.0" onAction="#cmboTypeOnAction" prefHeight="24.0" prefWidth="236.0" promptText="select your transaction type" />
+      <TableView fx:id="tblTransaction" layoutX="63.0" layoutY="177.0" prefHeight="355.0" prefWidth="705.0">
+         <columns>
+            <TableColumn fx:id="colTransactionId" prefWidth="115.0" text="TransactionId" />
+            <TableColumn fx:id="colBookId" prefWidth="70.0" text="BookId" />
+            <TableColumn fx:id="colBookNameId" prefWidth="137.0" text="BookName" />
+            <TableColumn fx:id="userId" prefWidth="91.0" text="userName" />
+            <TableColumn fx:id="colBranchId" prefWidth="77.0" text="branchId" />
+            <TableColumn fx:id="colType" prefWidth="101.0" text="type" />
+            <TableColumn fx:id="colduedate" prefWidth="113.0" text="due date" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtsearch" layoutX="538.0" layoutY="39.0" onAction="#txtSearchOnAction" promptText="search here" />
+      <Button fx:id="btnOverDueDate" layoutX="654.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnOverDueDateOnAction" text="Overduedate" />
+   </children>
+</AnchorPane>
