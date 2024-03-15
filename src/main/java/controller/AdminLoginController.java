@@ -1,14 +1,18 @@
 package controller;
 
+import bo.custom.AdminBo;
+import bo.util.BoFactory;
+import dto.AdminDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import util.Navigation;
+import util.Routes;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class AdminLoginController {
 
@@ -42,38 +46,63 @@ public class AdminLoginController {
     @FXML
     private TextField txtUserName;
 
+    private final AdminBo adminBo;
+
+    // Constructor
+    public AdminLoginController() {
+        this.adminBo = (AdminBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.ADMIN);
+    }
+
     @FXML
-    void btnLoginAdminController(ActionEvent event) throws IOException {
-           // login();
-     AnchorPane   anchorPane = FXMLLoader.load(getClass().getResource("/view/admin_dashbord.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) paneAdminLogin.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
+    void btnLoginAdminController(ActionEvent event) {
+        login();
     }
 
     @FXML
     void checkBoxPasswordOnAction(ActionEvent event) {
-if(checkboxPassword.isSelected()){
-    showPassword.setText(txtPassword.getText());
-    showPassword.setVisible(true);
-    txtPassword.setVisible(false);
-}
-else{
-    txtPassword.setText(showPassword.getText());
-    txtPassword.setVisible(true);
-    showPassword.setVisible(false);
-}
-    }
-    /*Void login(){
-        String userName=txtUserName.getText();
-        String pswrd=txtPassword.getText();
-        String pswrd1=showPassword.getText();
-        try{
-
+        if (checkboxPassword.isSelected()) {
+            showPassword.setText(txtPassword.getText());
+            showPassword.setVisible(true);
+            txtPassword.setVisible(false);
+        } else {
+            txtPassword.setText(showPassword.getText());
+            txtPassword.setVisible(true);
+            showPassword.setVisible(false);
         }
-    }*/
+    }
 
+    void login() {
+        String userName = txtUserName.getText();
+        String pswrd = txtPassword.getText();
+        String pswrd1 = showPassword.getText();
+        try {
+            List<AdminDto> adminDtoList = adminBo.getAllAdmins();
 
+            boolean loginSuccess = false;
+            for (AdminDto dto : adminDtoList) {
+                if (dto.getUserName().equals(userName) && (dto.getPassword().equals(pswrd) || dto.getPassword().equals(pswrd1))) {
+                    try {
+                        Navigation.navigate(Routes.ADMIN_DASHBOARD, paneAdminLogin);
+                        fillProfileData();
+                    } catch (IOException e) {
+                        e.printStackTrace(); // Log the error or display an error message to the user
+                    }
+                    loginSuccess = true;
+                    break;
+                }
+            }
 
+            if (!loginSuccess) {
+                new Alert(Alert.AlertType.ERROR, "Your login details are incorrect").show();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log the error or display an error message to the user
+        }
+    }
+
+    private void fillProfileData() {
+        AdminPrpfileController.setValue(txtUserName.getText());
+    }
 }
+
+
