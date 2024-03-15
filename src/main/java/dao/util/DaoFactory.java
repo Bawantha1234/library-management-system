@@ -1,7 +1,7 @@
 package dao.util;
 
 
-import dao.impl.AdminDaoImpl;
+import dao.impl.*;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -16,10 +16,10 @@ public class DaoFactory {
     }
     public SuperDao getDao(DaoTypes type ){
         switch (type){
-           // case BRANCH:return new BranchDaoImpl();
-           // case TRANSACTION:return new TransactionDaoImpl();
-          //  case USER:return new UserDaoImpl();
-          //  case BOOK:return new BookDaoImpl();
+            case BRANCH:return new BranchDaoImpl();
+            case TRANSACTION:return new TransactionDaoImpl();
+            case USER:return new UserDaoImpl();
+           case BOOK:return new BookDaoImpl();
             case ADMIN:return new AdminDaoImpl();
             default:return null;
         }

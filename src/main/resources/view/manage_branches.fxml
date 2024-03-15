@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ManageBranchesFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="paneBranch" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBranchesFormController">
+   <children>
+      <Label layoutX="70.0" layoutY="54.0" text="Name" />
+      <TextField fx:id="txtName" layoutX="141.0" layoutY="55.0" />
+      <Label layoutX="73.0" layoutY="110.0" text="Address" />
+      <TextField fx:id="txtAdress" layoutX="141.0" layoutY="106.0" />
+      <TextField fx:id="txtContact" layoutX="521.0" layoutY="55.0" />
+      <Label layoutX="445.0" layoutY="59.0" text="Contact" />
+      <TableView fx:id="tblBranch" layoutX="119.0" layoutY="218.0" prefHeight="268.0" prefWidth="565.0">
+        <columns>
+          <TableColumn fx:id="colBranchName" prefWidth="137.0" text="BranchName" />
+          <TableColumn fx:id="colAddress" prefWidth="121.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="149.0" text="Contact" />
+            <TableColumn fx:id="colAdmin" prefWidth="157.0" text="Admin" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnadd" layoutX="440.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="ADD" />
+      <Button fx:id="btnDelete" layoutX="545.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button fx:id="btnUpdate" layoutX="643.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
+   </children>
 </AnchorPane>

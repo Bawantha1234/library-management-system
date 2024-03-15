@@ -10,7 +10,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/Add_new_admin.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/manage_branches.fxml"))));
         stage.centerOnScreen();
         stage.setTitle("ADDMIN REGISTER");
 

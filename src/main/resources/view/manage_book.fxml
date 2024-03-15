@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBookFormController">
+<AnchorPane fx:id="paneAddBook" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBookFormController">
    <children>
       <Label layoutX="70.0" layoutY="74.0" prefHeight="18.0" prefWidth="61.0" text="Title">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="174.0" layoutY="71.0" />
-      <TextField layoutX="171.0" layoutY="126.0" />
-      <ComboBox layoutX="189.0" layoutY="189.0" prefHeight="24.0" prefWidth="161.0" promptText="select the branch" />
+      <TextField fx:id="txtBookTitle" layoutX="174.0" layoutY="71.0" />
+      <TextField fx:id="txtGenere" layoutX="171.0" layoutY="126.0" />
+      <ComboBox fx:id="comboBranch" layoutX="189.0" layoutY="189.0" onAction="#comboBranchOnAction" prefHeight="24.0" prefWidth="161.0" promptText="select the branch" />
       <Label layoutX="447.0" layoutY="192.0" prefHeight="18.0" prefWidth="104.0" text="Availability">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -26,16 +29,28 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="551.0" layoutY="189.0" prefHeight="24.0" prefWidth="161.0" />
+      <ComboBox fx:id="comboStatus" layoutX="551.0" layoutY="189.0" onAction="#comboAvailabilityOnaction" prefHeight="24.0" prefWidth="161.0" />
       <Label layoutX="80.0" layoutY="139.0" prefHeight="18.0" prefWidth="61.0" text="Genere">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="400.0" layoutY="74.0" prefHeight="18.0" prefWidth="61.0" text="Title">
+      <Label layoutX="460.0" layoutY="95.0" prefHeight="18.0" prefWidth="61.0" text="Author:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <TextField fx:id="txtauthor" layoutX="534.0" layoutY="92.0" />
+      <Button fx:id="btnadd" layoutX="661.0" layoutY="256.0" mnemonicParsing="false" onAction="#BtnAddOnaction" text="Add" />
+      <Button fx:id="btnDelete" layoutX="654.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnDeleetOnaction" text="delete" />
+      <Button fx:id="btnUpdate" layoutX="650.0" layoutY="371.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
+      <TableView fx:id="tblBookDetails" layoutX="141.0" layoutY="268.0" prefHeight="200.0" prefWidth="402.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="75.0" text="BookName" />
+          <TableColumn fx:id="colAuthor" prefWidth="75.0" text="Author" />
+            <TableColumn fx:id="colBranchName" prefWidth="128.0" text="BranchName" />
+            <TableColumn fx:id="colAvailability" prefWidth="123.0" text="Availability" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
