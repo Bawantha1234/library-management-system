@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="paneAdminLogin" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminLoginController">
+   <children>
+      <AnchorPane fx:id="paneAdminLoginDetail" layoutX="374.0" layoutY="97.0" prefHeight="371.0" prefWidth="354.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #4CCD99; -fx-border-width: 2px; -fx-background-color: white;">
+         <children>
+            <TextField fx:id="txtUserName" layoutX="61.0" layoutY="93.0" prefHeight="40.0" prefWidth="233.0" style="-fx-background-radius: 15px;" />
+            <Button fx:id="btnLoginAdmin" layoutX="121.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnLoginAdminController" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #4CCD99; -fx-background-radius: 10px;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblusername" layoutX="50.0" layoutY="70.0" text="UserName" />
+            <Label fx:id="lblpassword" layoutX="50.0" layoutY="143.0" text="Password" />
+            <Label fx:id="lblLgin" layoutX="143.0" layoutY="21.0" text="LOGIN" />
+            <CheckBox fx:id="checkboxPassword" layoutX="92.0" layoutY="207.0" mnemonicParsing="false" onAction="#checkBoxPasswordOnAction" text="show password" />
+            <TextField fx:id="showPassword" layoutX="59.0" layoutY="159.0" prefHeight="40.0" prefWidth="233.0" style="-fx-background-radius: 15px;" />
+            <PasswordField fx:id="txtPassword" layoutX="59.0" layoutY="159.0" prefHeight="40.0" prefWidth="233.0" style="-fx-background-radius: 15px;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

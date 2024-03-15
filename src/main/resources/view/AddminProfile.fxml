@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="paneAdminProfile" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPrpfileController">
+   <children>
+      <AnchorPane fx:id="paneAddmin" layoutX="51.0" layoutY="83.0" prefHeight="390.0" prefWidth="479.0" style="-fx-border-color: blue; -fx-background-color: white; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+         <children>
+            <TextField fx:id="txtName" layoutX="75.0" layoutY="53.0" prefHeight="43.0" prefWidth="232.0" promptText="type your name" />
+            <TextField fx:id="txtUserNAme" layoutX="75.0" layoutY="112.0" prefHeight="43.0" prefWidth="232.0" promptText="type your userName" />
+            <TextField fx:id="txtEmail" layoutX="75.0" layoutY="178.0" prefHeight="43.0" prefWidth="232.0" promptText="type your email" />
+            <TextField fx:id="txtPAssword" layoutX="75.0" layoutY="257.0" prefHeight="43.0" prefWidth="232.0" promptText="type your password" />
+            <Button fx:id="btnAdd" layoutX="358.0" layoutY="63.0" mnemonicParsing="false" onAction="#btnAddAdminOnAction" prefHeight="32.0" prefWidth="80.0" text="Add" />
+            <Button fx:id="btnDelete" layoutX="358.0" layoutY="118.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="80.0" text="Delete" />
+            <Button fx:id="btnUpdate" layoutX="358.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="80.0" text="Update" />
+            <Button fx:id="btnLogout" layoutX="358.0" layoutY="257.0" mnemonicParsing="false" onAction="#BtnLOgOutOnAction" prefHeight="32.0" prefWidth="80.0" text="loout" />
+            <Button fx:id="btnSaveChanges" layoutX="178.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnSaveChangesOnAction" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: blue;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
